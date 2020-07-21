@@ -43,7 +43,7 @@ choclate_mousse_maffin = IngredientDessert.new(choclate_mousse, maffin)
 end
 
 5.times do
-  Listing.new(Faker::Address.city)
+  Listing.new(Faker::Address.secondary_address, Faker::Address.city)
 end
 
 trip1 = Trip.new(Listing.all[0], Guest.all[0])
@@ -56,54 +56,62 @@ trip5 = Trip.new(Listing.all[2], Guest.all[2])
 trip6 = Trip.new(Listing.all[3], Guest.all[2])
 trip7 = Trip.new(Listing.all[3], Guest.all[0])
 
+# Listing.all[0].trips
+# Listing.all[0].trip_count
+# Listing.all.find_all_by_city("Binsville")
+# Listing.most_popular
+# Guest.pro_traveller
+Guest.find_all_by_name("Amy Walsh")
+
+
 #LYFT
 
-3.times do
-  Passenger.new(Faker::Name.name)
-end
+# 3.times do
+#   Passenger.new(Faker::Name.name)
+# end
 
-3.times do
-  Driver.new(Faker::Name.name)
-end
+# 3.times do
+#   Driver.new(Faker::Name.name)
+# end
 
-ride1 = Ride.new(Passenger.all[0], Driver.all[0], 102, 10)
-ride2 = Ride.new(Passenger.all[0], Driver.all[1], 25, 4)
-ride3 = Ride.new(Passenger.all[1], Driver.all[1], 45, 9)
-ride4 = Ride.new(Passenger.all[2], Driver.all[1], 38, 6)
-ride5 = Ride.new(Passenger.all[2], Driver.all[2], 10, 0)
-ride6 = Ride.new(Passenger.all[2], Driver.all[0], 56, 10)
+# ride1 = Ride.new(Passenger.all[0], Driver.all[0], 102, 10)
+# ride2 = Ride.new(Passenger.all[0], Driver.all[1], 25, 4)
+# ride3 = Ride.new(Passenger.all[1], Driver.all[1], 45, 9)
+# ride4 = Ride.new(Passenger.all[2], Driver.all[1], 38, 6)
+# ride5 = Ride.new(Passenger.all[2], Driver.all[2], 10, 0)
+# ride6 = Ride.new(Passenger.all[2], Driver.all[0], 56, 10)
 
-# Driver.all.mileage_cap.include?(Driver.all[0])
-puts Driver.highest_rated
-
-
-# GYM
-
-4.times do
-  Trainer.new(Faker::Name.name)
-end
-
-Client.new(Faker::Name.name, Trainer.all[0])
-Client.new(Faker::Name.name, Trainer.all[0])
-Client.new(Faker::Name.name, Trainer.all[0])
-Client.new(Faker::Name.name, Trainer.all[1])
-Client.new(Faker::Name.name, Trainer.all[1])
-Client.new(Faker::Name.name, Trainer.all[2])
-Client.new(Faker::Name.name, Trainer.all[3])
+# # Driver.all.mileage_cap.include?(Driver.all[0])
+# # puts Driver.highest_rated
 
 
-2.times do
-  Location.new(Faker::Address.city)
-end
+# # GYM
 
-5.times do
-  LocationTrainer.new(Location.all.sample, Trainer.all.sample)
-end
+# 4.times do
+#   Trainer.new(Faker::Name.name)
+# end
+
+# Client.new(Faker::Name.name, Trainer.all[0])
+# Client.new(Faker::Name.name, Trainer.all[0])
+# Client.new(Faker::Name.name, Trainer.all[0])
+# Client.new(Faker::Name.name, Trainer.all[1])
+# Client.new(Faker::Name.name, Trainer.all[1])
+# Client.new(Faker::Name.name, Trainer.all[2])
+# Client.new(Faker::Name.name, Trainer.all[3])
 
 
-# puts Location.highest_clients
-# puts Location.least_clients
-# Trainer.most_clients
+# 2.times do
+#   Location.new(Faker::Address.city)
+# end
+
+# 5.times do
+#   LocationTrainer.new(Location.all.sample, Trainer.all.sample)
+# end
+
+
+# # puts Location.highest_clients
+# # puts Location.least_clients
+# # Trainer.most_clients
 
 
 

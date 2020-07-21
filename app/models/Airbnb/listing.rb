@@ -1,8 +1,9 @@
 class Listing
-    attr_accessor :city
+    attr_accessor :property, :city
     @@all = []
 
-    def initialize(city)
+    def initialize(property, city)
+        @property = property
         @city = city
         @@all << self
     end
@@ -11,23 +12,26 @@ class Listing
         @@all
     end
 
-    def listing_guests_trips
+    def trips
         Trip.all.select {|trip| trip.listing == self}
     end
-
-    def guests
-        self.listing_guests_trips.map {|l| l.guest.name}
-    end
     
-    def trips
-        self.listing_guests_trips.map {|l| l}
+    def guests
+        self.trips.map {|trip| trip.guest}
     end
 
     def trip_count
+        binding.pry
         self.trips.count
     end
 
     def self.find_all_by_city(city)
-        Listing.all.select {|list| list.city.downcase == city.downcase}
+        Listing.all.select {|list| list.city.downcase.gsub(" ","") == city.downcase.gsub(" ","")}
     end
+
+    
+    def self.most_popular #finds the listing that has had the most trips
+        self.all.max_by {|listing| listing.trip_count}
+    end
+
 end
