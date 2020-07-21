@@ -36,6 +36,25 @@ choclate_mousse_maffin = IngredientDessert.new(choclate_mousse, maffin)
 #print sugar.bakery
 # print Ingredient.find_all_by_name("Choclate")
 
+#AIRBNB
+
+5.times do
+  Guest.new(Faker::Name.name)
+end
+
+5.times do
+  Listing.new(Faker::Address.city)
+end
+
+trip1 = Trip.new(Listing.all[0], Guest.all[0])
+trip2 = Trip.new(Listing.all[0], Guest.all[1])
+trip8 = Trip.new(Listing.all[0], Guest.all[2])
+trip8 = Trip.new(Listing.all[0], Guest.all[3])
+trip3 = Trip.new(Listing.all[1], Guest.all[2])
+trip4 = Trip.new(Listing.all[1], Guest.all[3])
+trip5 = Trip.new(Listing.all[2], Guest.all[2])
+trip6 = Trip.new(Listing.all[3], Guest.all[2])
+trip7 = Trip.new(Listing.all[3], Guest.all[0])
 
 #LYFT
 
@@ -84,6 +103,8 @@ end
 
 # puts Location.highest_clients
 # puts Location.least_clients
-Trainer.most_clients
+# Trainer.most_clients
+
+
 
 binding.pry
